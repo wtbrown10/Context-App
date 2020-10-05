@@ -8,7 +8,7 @@ export default class BookList extends Component {
         const theme = isLightTheme ? light : dark
         return (
             <div className='book-list' style={{ color: ThemeContext.syntax, background: ThemeContext.bg}}>
-                <h1>Book List</h1>
+                
                 <ul>
                 <li style={{ background: theme.ui }}>The way of kings</li>
                 <li style={{ background: theme.ui }}>the Name of the wind</li>
