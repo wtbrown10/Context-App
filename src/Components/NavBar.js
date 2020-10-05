@@ -4,13 +4,15 @@ import { ThemeContext } from '../Context/ThemeContext'
 
 
 export default class NavBar extends Component {
-    static contextType = ThemeContext
+    
     render() {
-        console.log(this.context)
-        const { isLightTheme, light, dark} = this.context
-        const theme = isLightTheme ? light : dark
+    
         return(
-            <nav style={{ background: theme.ui, color: theme.syntax }}>
+            <ThemeContext.Consumer>{(context) => {
+                const { isLightTheme, light, dark} = context
+                const theme = isLightTheme ? light : dark
+                return(
+                <nav style={{ background: theme.ui, color: theme.syntax }}>
                 <h1>Context App</h1>
                 <ul>
                     <li>Home</li>
@@ -19,6 +21,8 @@ export default class NavBar extends Component {
 
                 </ul>
             </nav>
+                )
+            }}</ThemeContext.Consumer>
         )
     }
 }
